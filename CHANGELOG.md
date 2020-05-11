@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2020-05-11
+### Changed
+- Ignore * swp * files
+
 ## [0.1.1] - 2020-05-06
 ### Added
 - This CHANGELOG file 
