@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4] - 2020-05-12
+### Changed
+- Add paragraph 
+- [npm run dev vs npm run start](https://svelte.dev/blog/svelte-for-new-developers)
+
 ## [0.1.3] - 2020-05-12
 ### Changed
 - Add paragraph, and modify styles
