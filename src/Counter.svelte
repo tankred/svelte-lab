@@ -1,9 +1,12 @@
 <script>
   let counter = 0;  // counter variable
-  $: doubled = counter * 2;
+  
+  $: doubled = counter * 2
+  $: console.log(`the count is ${counter}`) // be carefull with copied backticks ! 
   const handleClick = () => { //Function to add 1 to our variable
     counter += 1;
   };
+  
 </script>
 <style>
   button{
