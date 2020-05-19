@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.8] - 2020-05-19
+### Added
+- Update arrays
+
 ## [0.1.7] - 2020-05-18
 ### Changed
 - Write to console log, use the correct backticks
