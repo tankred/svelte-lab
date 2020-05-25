@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.10] - 2020-05-25
+### Changed
+- Nested svelte with default values
+
 ## [0.1.9] - 2020-05-20
 ### Added
 - Nested svelte

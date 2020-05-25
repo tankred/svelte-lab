@@ -11,7 +11,8 @@
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<Updatearrays />
-	<Nested answer={42}/>
+	<Nested />
+	<Nested answer={41} />
 </main>
 
 <style>
