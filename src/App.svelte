@@ -3,6 +3,11 @@
   export let name;
   import Updatearrays from "./Updatearrays.svelte";
   import Nested from './Nested.svelte'; 
+  // login button
+  let user = { loggedIn: false };
+  function toggle() {
+    user.loggedIn = !user.loggedIn;
+  }
 </script>
 
 <main>
@@ -13,6 +18,17 @@
 	<Updatearrays />
 	<Nested />
 	<Nested answer={41} />
+	{#if user.loggedIn}
+	<button on:click={toggle}>
+	  Log out
+	</button>
+        {/if}
+
+       {#if !user.loggedIn}
+	<button on:click={toggle}>
+	  Log in
+	</button>
+       {/if}
 </main>
 
 <style>

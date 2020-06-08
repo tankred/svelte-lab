@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.11] - 2020-06-08
+### Changed
+- Toggle button login/logout
+
 ## [0.1.10] - 2020-05-25
 ### Changed
 - Nested svelte with default values
