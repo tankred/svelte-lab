@@ -28,6 +28,16 @@
 	<button on:click={toggle}>
 	  Log in
 	</button>
+       {/if}	
+	<!-- shorthand: using else -->
+       {#if user.loggedIn}
+	<button on:click={toggle}>
+	  Log out
+	</button>
+       {:else}
+	<button on:click={toggle}>
+	  Log in
+	</button>
        {/if}
 </main>
 
