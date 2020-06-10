@@ -1,6 +1,7 @@
 <script>
   import Counter from "./Counter.svelte";
   export let name;
+  let x = 7;
   import Updatearrays from "./Updatearrays.svelte";
   import Nested from './Nested.svelte'; 
   // login button
@@ -38,6 +39,13 @@
 	<button on:click={toggle}>
 	  Log in
 	</button>
+       {/if}
+       {#if x > 10}
+	<p>{x} is greater than 10</p>
+       {:else if 5 > x}
+	<p>{x} is less than 5</p>
+       {:else}
+	<p>{x} is between 5 and 10</p>
        {/if}
 </main>
 

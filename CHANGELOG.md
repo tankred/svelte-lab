@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.13] - 2020-06-10
+### Changed
+- Chaining multiple conditions
+
 ## [0.1.12] - 2020-06-09
 ### Changed
 - Toggle button with :else
