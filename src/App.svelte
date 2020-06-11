@@ -1,11 +1,19 @@
 <script>
+  // import
   import Counter from "./Counter.svelte";
-  export let name;
-  let x = 7;
   import Updatearrays from "./Updatearrays.svelte";
   import Nested from './Nested.svelte'; 
-  // login button
+  // export
+  export let name;
+  // let
   let user = { loggedIn: false };
+  let x = 7;
+  let cats = [
+    { id: 'J---aiyznGQ', name: 'Keyboard Cat' },
+    { id: 'z_AbfPXTKms', name: 'Maru' },
+    { id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+  ];
+  // login button
   function toggle() {
     user.loggedIn = !user.loggedIn;
   }
@@ -47,6 +55,11 @@
        {:else}
 	<p>{x} is between 5 and 10</p>
        {/if}
+       <ul>
+	{#each cats as cat, i}
+	  <li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">{i + 1}: {cat.name}</a></li>
+	{/each}
+       </ul>
 </main>
 
 <style>
