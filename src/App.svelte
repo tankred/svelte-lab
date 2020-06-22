@@ -3,6 +3,7 @@
   import Counter from "./Counter.svelte";
   import Updatearrays from "./Updatearrays.svelte";
   import Nested from './Nested.svelte'; 
+  import Thing from './Thing.svelte';
   // export
   export let name;
   // let
@@ -13,6 +14,17 @@
     { id: 'z_AbfPXTKms', name: 'Maru' },
     { id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
   ];
+  let things = [
+		{ id: 1, color: '#0d0887' },
+		{ id: 2, color: '#6a00a8' },
+		{ id: 3, color: '#b12a90' },
+		{ id: 4, color: '#e16462' },
+		{ id: 5, color: '#fca636' }
+  ];
+
+  function handleClick() {
+    things = things.slice(1);
+  }
   // login button
   function toggle() {
     user.loggedIn = !user.loggedIn;
@@ -60,6 +72,15 @@
 	  <li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">{i + 1}: {cat.name}</a></li>
 	{/each}
        </ul>
+
+<button on:click={handleClick}>
+	Remove first thing
+</button>
+
+{#each things as thing}
+	<Thing current={thing.color}/>
+{/each}
+
 </main>
 
 <style>
