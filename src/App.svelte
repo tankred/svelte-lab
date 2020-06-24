@@ -21,6 +21,23 @@
 		{ id: 4, color: '#e16462' },
 		{ id: 5, color: '#fca636' }
   ];
+  let promise = getRandomNumber();
+
+  // function
+  async function getRandomNumber() {
+    const res = await fetch(`https://svelte.dev/tutorial/random-number`);
+    const text = await res.text();
+
+		if (res.ok) {
+			return text;
+		} else {
+			throw new Error(text);
+		}
+   }
+
+   function handleClickPromise() {
+     promise = getRandomNumber();
+   }
 
   function handleClick() {
     things = things.slice(1);
@@ -32,6 +49,7 @@
 </script>
 
 <main>
+  <div id="container">
 	<h1>Hello {name}!</h1>
 	<Counter />
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
@@ -81,6 +99,23 @@
 	<Thing current={thing.color}/>
 {/each}
 
+<button on:click={handleClickPromise}>
+	generate random number
+</button>
+
+{#await promise then value}
+	<p>the value is {value}</p>
+{/await}
+
+{#await promise}
+	<p>...waiting</p>
+{:then number}
+	<p>The number is {number}</p>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+
+  </div>
 </main>
 
 <style>
@@ -93,6 +128,12 @@
 		max-width: 240px;
 		margin: 0 auto;
 	}
+  #container {
+    margin: 1.24em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1.53rem;
+  }
 
 	h1 {
 		color: #ff3e00;
