@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.17] - 2020-06-24
+### Changed
+- Add mouse position info
+
 ## [0.1.16] - 2020-06-24
 ### Changed
 - Add await promisse

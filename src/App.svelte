@@ -7,6 +7,7 @@
   // export
   export let name;
   // let
+  let m = { x: 0, y: 0 };
   let user = { loggedIn: false };
   let x = 7;
   let cats = [
@@ -24,6 +25,11 @@
   let promise = getRandomNumber();
 
   // function
+  function handleMousemove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+  }
+
   async function getRandomNumber() {
     const res = await fetch(`https://svelte.dev/tutorial/random-number`);
     const text = await res.text();
@@ -51,6 +57,9 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<div on:mousemove={handleMousemove}>
+        	The mouse position is {m.x} x {m.y}
+        </div>
 	<Counter />
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
