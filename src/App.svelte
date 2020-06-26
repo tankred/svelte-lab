@@ -57,6 +57,9 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
+ 	The mouse position is {m.x} x {m.y}
+        </div>
 	<div on:mousemove={handleMousemove}>
         	The mouse position is {m.x} x {m.y}
         </div>
