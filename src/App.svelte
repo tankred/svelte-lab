@@ -143,9 +143,15 @@
   #container {
     margin: 1.24em;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1.53rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+
+
+  /*
+  Auto-fit vs auto-fill: 
+  https://codepen.io/tulsi-prasad/pen/XWmddjK
+   */
 
 	h1 {
 		color: #ff3e00;
