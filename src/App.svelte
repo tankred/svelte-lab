@@ -25,6 +25,10 @@
   let promise = getRandomNumber();
 
   // function
+  function handleClickOnce() {
+		alert('clicked')
+  }
+
   function handleMousemove(event) {
 		m.x = event.clientX;
 		m.y = event.clientY;
@@ -57,6 +61,9 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<button on:click|once={handleClickOnce}>
+	Click me
+	</button>
 	<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
  	The mouse position is {m.x} x {m.y}
         </div>
