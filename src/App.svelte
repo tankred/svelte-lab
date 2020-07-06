@@ -4,6 +4,7 @@
   import Updatearrays from "./Updatearrays.svelte";
   import Nested from './Nested.svelte'; 
   import Thing from './Thing.svelte';
+  import Inner from './Inner.svelte';
   // export
   export let name;
   // let
@@ -25,6 +26,9 @@
   let promise = getRandomNumber();
 
   // function
+  function handleMessage(event) {
+		alert(event.detail.text);
+  }
   function handleClickOnce() {
 		alert('clicked')
   }
@@ -61,6 +65,7 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<Inner on:message={handleMessage}/>
 	<button on:click|once={handleClickOnce}>
 	Click me
 	</button>

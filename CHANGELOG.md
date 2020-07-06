@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.20] - 2020-07-06
+### Added
+- Inner.svelte
+
 ## [0.1.19] - 2020-06-29
 ### Changed
 - Event modifiers
