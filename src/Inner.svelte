@@ -5,12 +5,12 @@
 
 	function sayHello() {
 		dispatch('message', {
-			text: 'Hello!'
+			text: 'Hello !'
 		});
 	}
 
 </script>
 
 <button on:click={sayHello}>
-	Click to say hello
+	Click to say hi
 </button>

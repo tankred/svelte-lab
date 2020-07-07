@@ -4,7 +4,8 @@
   import Updatearrays from "./Updatearrays.svelte";
   import Nested from './Nested.svelte'; 
   import Thing from './Thing.svelte';
-  import Inner from './Inner.svelte';
+  //import Inner from './Inner.svelte';
+  import Outer from './Outer.svelte';
   // export
   export let name;
   // let
@@ -65,7 +66,7 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
-	<Inner on:message={handleMessage}/>
+	<Outer on:message={handleMessage}/>
 	<button on:click|once={handleClickOnce}>
 	Click me
 	</button>
