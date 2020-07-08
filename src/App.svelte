@@ -6,6 +6,7 @@
   import Thing from './Thing.svelte';
   //import Inner from './Inner.svelte';
   import Outer from './Outer.svelte';
+  import Custombutton from './Custombutton.svelte';
   // export
   export let name;
   // let
@@ -57,8 +58,12 @@
   function handleClick() {
     things = things.slice(1);
   }
-  // login button
-  function toggle() {
+
+  function handleClickCB() {
+		alert('clicked');
+  }
+
+  function toggle() { // login button
     user.loggedIn = !user.loggedIn;
   }
 </script>
@@ -66,6 +71,7 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<Custombutton on:click={handleClickCB}/>
 	<Outer on:message={handleMessage}/>
 	<button on:click|once={handleClickOnce}>
 	Click me
