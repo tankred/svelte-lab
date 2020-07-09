@@ -10,6 +10,7 @@
   // export
   export let name;
   // let
+  let namebinding = 'world';
   let m = { x: 0, y: 0 };
   let user = { loggedIn: false };
   let x = 7;
@@ -71,6 +72,8 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<input value={namebinding}>
+	<h2>Hello {namebinding}!</h2>
 	<Custombutton on:click={handleClickCB}/>
 	<Outer on:message={handleMessage}/>
 	<button on:click|once={handleClickOnce}>
