@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.24] - 2020-07-10
+### Changed
+- Add numeric inputs
+
 ## [0.1.23] - 2020-07-09
 ### Changed
 - Add bindings 
