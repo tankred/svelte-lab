@@ -10,6 +10,7 @@
   // export
   export let name;
   // let
+  let value = `Some words are *italic*, some are **bold**`;
   let scoops = 1;
   let flavours = ['Mint choc chip'];
   let menu = [
@@ -86,6 +87,7 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<textarea bind:value></textarea>
 	<h2>Size</h2>
 	<label>
 	  <input type=radio bind:group={scoops} value={1}>
@@ -234,7 +236,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
-
+  textarea { width: 100%; height: 200px; }
   /*
   Auto-fit vs auto-fill: 
   https://codepen.io/tulsi-prasad/pen/XWmddjK

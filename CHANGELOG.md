@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.27] - 2020-08-25
+### Changed
+- Implement text area
+
 ## [0.1.26] - 2020-08-24
 ### Changed
 - Radio buttons input
