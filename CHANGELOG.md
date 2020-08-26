@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.28] - 2020-08-26
+### Changed
+- Upgrade dependencies
+
 ## [0.1.27] - 2020-08-25
 ### Changed
 - Implement text area
