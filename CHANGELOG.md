@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
+## [0.2.0] - 2020-08-26
+### Changed
+- Bump version to 0.2
+
 ## [0.1.28] - 2020-08-26
 ### Changed
 - Upgrade dependencies
@@ -127,8 +133,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Counter.svelte
 ### Changed
 - App.svelte
-
-## [Released]
 
 ## [0.1.0] - 2020-05-05
 ### Added
