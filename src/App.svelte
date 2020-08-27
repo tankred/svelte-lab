@@ -10,6 +10,13 @@
   // export
   export let name;
   // let
+  let questions = [
+		{ id: 1, text: `Where did you go to school?` },
+		{ id: 2, text: `What is your mother's name?` },
+		{ id: 3, text: `What is another personal fact that an attacker could easily find with Google?` }
+  ];
+  let selected;
+  let answer = '';
   let value = `Some words are *italic*, some are **bold**`;
   let scoops = 1;
   let flavours = ['Mint choc chip'];
@@ -40,6 +47,9 @@
   let promise = getRandomNumber();
 
   // function
+  function handleSubmit() {
+		alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
+  }
   function join(flavours) {
     if (flavours.length === 1) return flavours[0];
     return `${flavours.slice(0, -1).join(', ')} and ${flavours[flavours.length - 1]}`;
@@ -87,6 +97,26 @@
 <main>
   <div id="container">
 	<h1>Hello {name}!</h1>
+	<h2>Insecurity questions</h2>
+
+    <form on:submit|preventDefault={handleSubmit}>
+    	<select bind:value={selected} on:change="{() => answer = ''}">
+    		{#each questions as question}
+    			<option value={question}>
+    				{question.text}
+    			</option>
+    		{/each}
+    	</select>
+    
+    	<input bind:value={answer}>
+    
+    	<button disabled={!answer} type=submit>
+    		Submit
+    	</button>
+    </form>
+    
+    <p>selected question {selected ? selected.id : '[waiting...]'}</p>
+    
 	<textarea bind:value></textarea>
 	<h2>Size</h2>
 	<label>
@@ -237,6 +267,7 @@
   }
 
   textarea { width: 100%; height: 200px; }
+  input { display: block; width: 500px; max-width: 100%; }
   /*
   Auto-fit vs auto-fill: 
   https://codepen.io/tulsi-prasad/pen/XWmddjK
