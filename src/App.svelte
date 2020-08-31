@@ -10,6 +10,7 @@
   // export
   export let name;
   // let
+  let html = '<p>Write some text!</p>';
   let questions = [
 		{ id: 1, text: `Where did you go to school?` },
 		{ id: 2, text: `What is your mother's name?` },
@@ -96,9 +97,12 @@
 
 <main>
   <div id="container">
+    <div
+	contenteditable="true"
+	bind:innerHTML={html}
+></div>
 	<h1>Hello {name}!</h1>
 	<h2>Insecurity questions</h2>
-
     <form on:submit|preventDefault={handleSubmit}>
     	<select bind:value={selected} on:change="{() => answer = ''}">
     		{#each questions as question}
@@ -272,6 +276,12 @@
     grid-gap: 1.53rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+
+  [contenteditable] {
+		padding: 0.5em;
+		border: 1px solid #eee;
+		border-radius: 4px;
+	}
 
   textarea { width: 100%; height: 200px; }
   input { display: block; width: 500px; max-width: 100%; }
