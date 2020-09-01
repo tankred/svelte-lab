@@ -10,6 +10,11 @@
   // export
   export let name;
   // let
+  let todos = [
+		{ done: false, text: 'finish Svelte tutorial' },
+		{ done: false, text: 'build an app' },
+		{ done: false, text: 'make the world a better place' }
+  ];
   let html = '<p>Write some text!</p>';
   let questions = [
 		{ id: 1, text: `Where did you go to school?` },
@@ -48,6 +53,13 @@
   let promise = getRandomNumber();
 
   // function
+  function add() {
+		todos = todos.concat({ done: false, text: '' });
+  }
+  function clear() {
+		todos = todos.filter(t => !t.done);
+  }
+  $: remaining = todos.filter(t => !t.done).length;
   function handleSubmit() {
 		alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
   }
@@ -95,8 +107,36 @@
   }
 </script>
 
+
 <main>
   <div id="container">
+    
+    <h1>Todos</h1>
+
+{#each todos as todo}
+	<div class:done={todo.done}>
+		<input
+			type=checkbox
+			bind:checked={todo.done}
+		>
+
+		<input
+			placeholder="What needs to be done?"
+			bind:value={todo.text}
+		>
+	</div>
+{/each}
+
+<p>{remaining} remaining</p>
+
+<button on:click={add}>
+	Add new
+</button>
+
+<button on:click={clear}>
+	Clear completed
+</button>
+
     <div
 	contenteditable="true"
 	bind:innerHTML={html}
@@ -159,6 +199,7 @@
 		of {join(flavours)}
 	</p>
 {/if}
+
 	<label>
 	<input type=checkbox bind:checked={yes}>
 	Yes! Send me regular email spam
@@ -262,9 +303,9 @@
 
 <style>
   body {
-    background-color: #0f0;
+    background-color: #0f0; 
   }
-	main {
+  main {
 		text-align: center;
 		padding: 1em;
 		max-width: 240px;
@@ -276,13 +317,14 @@
     grid-gap: 1.53rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-
+  .done {
+		opacity: 0.4;
+  }
   [contenteditable] {
 		padding: 0.5em;
 		border: 1px solid #eee;
 		border-radius: 4px;
 	}
-
   textarea { width: 100%; height: 200px; }
   input { display: block; width: 500px; max-width: 100%; }
   /*
