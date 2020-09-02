@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.6] - 2020-09-02
+### Changed
+- Add media elements
+- Removed all previous items 
+
 ## [0.2.5] - 2020-09-01
 ### Changed
 - Add each block bindings

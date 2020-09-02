@@ -10,6 +10,11 @@
   // export
   export let name;
   // let
+  let time = 0;
+	let duration;
+	let paused = true;
+  	let showControls = true;
+	let showControlsTimeout;
   let todos = [
 		{ done: false, text: 'finish Svelte tutorial' },
 		{ done: false, text: 'build an app' },
@@ -53,6 +58,48 @@
   let promise = getRandomNumber();
 
   // function
+  function handleMousemove(e) {
+		// Make the controls visible, but fade out after
+		// 2.5 seconds of inactivity
+		clearTimeout(showControlsTimeout);
+		showControlsTimeout = setTimeout(() => showControls = false, 2500);
+		showControls = true;
+
+		if (!(e.buttons & 1)) return; // mouse not down
+		if (!duration) return; // video not loaded yet
+
+		const { left, right } = this.getBoundingClientRect();
+		time = duration * (e.clientX - left) / (right - left);
+	}
+
+	function handleMousedown(e) {
+		// we can't rely on the built-in click event, because it fires
+		// after a drag — we have to listen for clicks ourselves
+
+		function handleMouseup() {
+			if (paused) e.target.play();
+			else e.target.pause();
+			cancel();
+		}
+
+		function cancel() {
+			e.target.removeEventListener('mouseup', handleMouseup);
+		}
+
+		e.target.addEventListener('mouseup', handleMouseup);
+
+		setTimeout(cancel, 200);
+	}
+
+	function format(seconds) {
+		if (isNaN(seconds)) return '...';
+
+		const minutes = Math.floor(seconds / 60);
+		seconds = Math.floor(seconds % 60);
+		if (seconds < 10) seconds = '0' + seconds;
+
+		return `${minutes}:${seconds}`;
+	}
   function add() {
 		todos = todos.concat({ done: false, text: '' });
   }
@@ -74,10 +121,7 @@
 		alert('clicked')
   }
 
-  function handleMousemove(event) {
-		m.x = event.clientX;
-		m.y = event.clientY;
-  }
+ 
 
   async function getRandomNumber() {
     const res = await fetch(`https://svelte.dev/tutorial/random-number`);
@@ -111,192 +155,27 @@
 <main>
   <div id="container">
     
-    <h1>Todos</h1>
+    <h1>Caminandes: Llamigos</h1>
+<p>From <a href="https://cloud.blender.org/open-projects">Blender Open Projects</a>. CC-BY</p>
 
-{#each todos as todo}
-	<div class:done={todo.done}>
-		<input
-			type=checkbox
-			bind:checked={todo.done}
-		>
+<div>
+	<video
+		poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
+		src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+		on:mousemove={handleMousemove}
+		on:mousedown={handleMousedown}
+	></video>
 
-		<input
-			placeholder="What needs to be done?"
-			bind:value={todo.text}
-		>
+	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
+		<progress value="{(time / duration) || 0}"/>
+
+		<div class="info">
+			<span class="time">{format(time)}</span>
+			<span>click anywhere to {paused ? 'play' : 'pause'} / drag to seek</span>
+			<span class="time">{format(duration)}</span>
+		</div>
 	</div>
-{/each}
-
-<p>{remaining} remaining</p>
-
-<button on:click={add}>
-	Add new
-</button>
-
-<button on:click={clear}>
-	Clear completed
-</button>
-
-    <div
-	contenteditable="true"
-	bind:innerHTML={html}
-></div>
-	<h1>Hello {name}!</h1>
-	<h2>Insecurity questions</h2>
-    <form on:submit|preventDefault={handleSubmit}>
-    	<select bind:value={selected} on:change="{() => answer = ''}">
-    		{#each questions as question}
-    			<option value={question}>
-    				{question.text}
-    			</option>
-    		{/each}
-    	</select>
-    
-    	<input bind:value={answer}>
-    
-    	<button disabled={!answer} type=submit>
-    		Submit
-    	</button>
-    </form>
-    
-    <p>selected question {selected ? selected.id : '[waiting...]'}</p>
-    
-	<textarea bind:value></textarea>
-	<h2>Size</h2>
-	<label>
-	  <input type=radio bind:group={scoops} value={1}>
-  	  One scoop
-	</label>
-	<label>
-	<input type=radio bind:group={scoops} value={2}>
-	Two scoops
-	</label>
-	<label>
-	<input type=radio bind:group={scoops} value={3}>
-	Three scoops
-	</label>
-	<h2>Flavours</h2>
-	<select multiple bind:value={flavours}>
-	{#each menu as flavour}
-		<option value={flavour}>
-			{flavour}
-		</option>
-	{/each}
-        </select>
-	{#each menu as flavour}
-	<label>
-		<input type=checkbox bind:group={flavours} value={flavour}>
-		{flavour}
-	</label>
-	{/each}
-	{#if flavours.length === 0}
-	<p>Please select at least one flavour</p>
-{:else if flavours.length > scoops}
-	<p>Can't order more flavours than scoops!</p>
-{:else}
-	<p>
-		You ordered {scoops} {scoops === 1 ? 'scoop' : 'scoops'}
-		of {join(flavours)}
-	</p>
-{/if}
-
-	<label>
-	<input type=checkbox bind:checked={yes}>
-	Yes! Send me regular email spam
-	</label>
-	{#if yes}
-	<p>Thank you. We will bombard your inbox and sell your personal details.</p>
-	{:else}
-	<p>You must opt in to continue. If you're not paying, you're the product.</p>
-	{/if}
-	<button disabled={!yes}>
-	Subscribe
-	</button>
-	<label>
-	<input type=number bind:value={a} min=0 max=10>
-	<input type=range bind:value={a} min=0 max=10>
-	</label>
-	<label>
-	<input type=number bind:value={b} min=0 max=10>
-	<input type=range bind:value={b} min=0 max=10>
-	</label>
-	<p>{a} + {b} = {a + b}</p>
-	<input value={namebinding}>
-	<h2>Hello {namebinding}!</h2>
-	<Custombutton on:click={handleClickCB}/>
-	<Outer on:message={handleMessage}/>
-	<button on:click|once={handleClickOnce}>
-	Click me
-	</button>
-	<div on:mousemove="{e => m = { x: e.clientX, y: e.clientY }}">
- 	The mouse position is {m.x} x {m.y}
-        </div>
-	<div on:mousemove={handleMousemove}>
-        	The mouse position is {m.x} x {m.y}
-        </div>
-	<Counter />
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<Updatearrays />
-	<Nested />
-	<Nested answer={41} />
-	{#if user.loggedIn}
-	<button on:click={toggle}>
-	  Log out
-	</button>
-        {/if}
-
-       {#if !user.loggedIn}
-	<button on:click={toggle}>
-	  Log in
-	</button>
-       {/if}	
-	<!-- shorthand: using else -->
-       {#if user.loggedIn}
-	<button on:click={toggle}>
-	  Log out
-	</button>
-       {:else}
-	<button on:click={toggle}>
-	  Log in
-	</button>
-       {/if}
-       {#if x > 10}
-	<p>{x} is greater than 10</p>
-       {:else if 5 > x}
-	<p>{x} is less than 5</p>
-       {:else}
-	<p>{x} is between 5 and 10</p>
-       {/if}
-       <ul>
-	{#each cats as cat, i}
-	  <li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">{i + 1}: {cat.name}</a></li>
-	{/each}
-       </ul>
-
-<button on:click={handleClick}>
-	Remove first thing
-</button>
-
-{#each things as thing}
-	<Thing current={thing.color}/>
-{/each}
-
-<button on:click={handleClickPromise}>
-	generate random number
-</button>
-
-{#await promise then value}
-	<p>the value is {value}</p>
-{/await}
-
-{#await promise}
-	<p>...waiting</p>
-{:then number}
-	<p>The number is {number}</p>
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}
+</div>
 
   </div>
 </main>
@@ -305,11 +184,55 @@
   body {
     background-color: #0f0; 
   }
-  main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+  div {
+		position: relative;
+	}
+
+	.controls {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		transition: opacity 1s;
+	}
+
+	.info {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	span {
+		padding: 0.2em 0.5em;
+		color: white;
+		text-shadow: 0 0 8px black;
+		font-size: 1.4em;
+		opacity: 0.7;
+	}
+
+	.time {
+		width: 3em;
+	}
+
+	.time:last-child { text-align: right }
+
+	progress {
+		display: block;
+		width: 100%;
+		height: 10px;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	progress::-webkit-progress-bar {
+		background-color: rgba(0,0,0,0.2);
+	}
+
+	progress::-webkit-progress-value {
+		background-color: rgba(255,255,255,0.6);
+	}
+
+	video {
+		width: 100%;
 	}
   #container {
     margin: 1.24em;
