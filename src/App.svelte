@@ -1,8 +1,12 @@
 <script>
   // import
   import { onMount } from 'svelte';
-  
+  import Keypad from './Keypad.svelte';
+
   // let
+  let pin;
+  $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
+
   let canvas;
   let w;
 	let h;
@@ -10,6 +14,10 @@
 	let text = 'edit me';
   
   // function
+  function handleSubmit() {
+		alert(`submitted ${pin}`);
+	}
+  
   onMount(() => {
 		const ctx = canvas.getContext('2d');
 		let frame;
@@ -67,7 +75,10 @@
     
 <main>
   <div id="container">
-    
+   <h1 style="color: {pin ? '#333' : '#ccc'}">{view}</h1>
+
+<Keypad bind:value={pin} on:submit={handleSubmit}/>
+
     <h1>Caminandes: Llamigos and canvas</h1>
 <p>From <a href="https://cloud.blender.org/open-projects">Blender Open Projects</a>. CC-BY</p>
 
