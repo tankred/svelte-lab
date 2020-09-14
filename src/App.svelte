@@ -1,9 +1,13 @@
 <script>
   // import
   import { onMount } from 'svelte';
+  import { onDestroy } from 'svelte';
   import Keypad from './Keypad.svelte';
 
   // let
+  let seconds = 0;
+  const interval = setInterval(() => seconds += 1, 1000);
+
   let photos = [];
   let pin;
   $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
@@ -15,6 +19,8 @@
 	let text = 'edit me';
   
   // function
+  onDestroy(() => clearInterval(interval));
+
   function handleSubmit() {
 		alert(`submitted ${pin}`);
 	}
@@ -93,7 +99,10 @@
     
 <main>
   <div id="container">
-
+    <p>
+	The page has been open for
+	{seconds} {seconds === 1 ? 'second' : 'seconds'}
+    </p>
     <h1>Photo album</h1>
 
 <div class="photos">
