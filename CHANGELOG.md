@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.12] - 2020-09-15
+### Changed
+- Manage lifecycle before- afterUpdate
+
 ## [0.2.11] - 2020-09-14
 ### Changed
 - Manage lifecycle on destroy
