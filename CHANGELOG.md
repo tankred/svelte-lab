@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.13] - 2020-09-16
+### Changed
+- Implement tick
+
 ## [0.2.12] - 2020-09-15
 ### Changed
 - Manage lifecycle before- afterUpdate

@@ -1,117 +1,142 @@
 <script>
   // import
-  import { onMount } from 'svelte';
-  import { onDestroy } from 'svelte';
+  import { tick } from 'svelte';
+  // import { onMount } from 'svelte';
+  // import { onDestroy } from 'svelte';
   //import Keypad from './Keypad.svelte';
-  import Eliza from 'elizabot';
-  import { beforeUpdate, afterUpdate } from 'svelte';
+  // import Eliza from 'elizabot';
+  // import { beforeUpdate, afterUpdate } from 'svelte';
 
   // let
-  let div
-  let autoscroll
-  let seconds = 0;
-  const interval = setInterval(() => seconds += 1, 1000);
-
-  let photos = [];
-  let pin;
-  $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
-
-  let canvas;
-  let w;
-	let h;
-	let size = 42;
-	let text = 'edit me';
-  
+  let text = `Select some text and hit the tab key to toggle uppercase`;
+  //    let div
+  //    let autoscroll
+  //    let seconds = 0;
+  //    const interval = setInterval(() => seconds += 1, 1000);
+  //  
+  //    let photos = [];
+  //    let pin;
+  //    $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'enter your pin';
+  //  
+  //    let canvas;
+  //    let w;
+  //  	let h;
+  //  	let size = 42;
+  //  	let text = 'edit me';
+   
   // function
-  beforeUpdate(() => {
-	autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
-  });
+  async function handleKeydown(event) {
+		if (event.key !== 'Tab') return;
 
-  afterUpdate(() => {
-	if (autoscroll) div.scrollTo(0, div.scrollHeight);
-  });
-  const eliza = new Eliza();
+		event.preventDefault();
 
-  let comments = [
-		{ author: 'eliza', text: eliza.getInitial() }
-	];
+		const { selectionStart, selectionEnd, value } = this;
+		const selection = value.slice(selectionStart, selectionEnd);
 
-  function handleKeydown(event) {
-		if (event.key === 'Enter') {
-			const text = event.target.value;
-			if (!text) return;
+		const replacement = /[a-z]/.test(selection)
+			? selection.toUpperCase()
+			: selection.toLowerCase();
 
-			comments = comments.concat({
-				author: 'user',
-				text
-			});
+		text = (
+			value.slice(0, selectionStart) +
+			replacement +
+			value.slice(selectionEnd)
+		);
 
-			event.target.value = '';
-
-			const reply = eliza.transform(text);
-
-			setTimeout(() => {
-				comments = comments.concat({
-					author: 'eliza',
-					text: '...',
-					placeholder: true
-				});
-
-				setTimeout(() => {
-					comments = comments.filter(comment => !comment.placeholder).concat({
-						author: 'eliza',
-						text: reply
-					});
-				}, 500 + Math.random() * 500);
-			}, 200 + Math.random() * 200);
-		}
+		await tick();
+		this.selectionStart = selectionStart;
+		this.selectionEnd = selectionEnd;
 	}
 
-  onDestroy(() => clearInterval(interval));
-
-//   function handleSubmit() {
-// 		alert(`submitted ${pin}`);
-// 	}
-  
-  onMount(async () => {
-		const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
-		photos = await res.json();
-	});
-
-  onMount(() => {
-		const ctx = canvas.getContext('2d');
-		let frame;
-
-		(function loop() {
-			frame = requestAnimationFrame(loop);
-
-			const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-			for (let p = 0; p < imageData.data.length; p += 4) {
-				const i = p / 4;
-				const x = i % canvas.width;
-				const y = i / canvas.height >>> 0;
-
-				const t = window.performance.now();
-
-				const r = 64 + (128 * x / canvas.width) + (64 * Math.sin(t / 1000));
-				const g = 64 + (128 * y / canvas.height) + (64 * Math.cos(t / 1000));
-				const b = 128;
-
-				imageData.data[p + 0] = r;
-				imageData.data[p + 1] = g;
-				imageData.data[p + 2] = b;
-				imageData.data[p + 3] = 255;
-			}
-
-			ctx.putImageData(imageData, 0, 0);
-		}());
-
-		return () => {
-			cancelAnimationFrame(frame);
-		};
-	});
-  
+  //    beforeUpdate(() => {
+  //  	autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
+  //    });
+  //  
+  //    afterUpdate(() => {
+  //  	if (autoscroll) div.scrollTo(0, div.scrollHeight);
+  //    });
+  //    const eliza = new Eliza();
+  //  
+  //    let comments = [
+  //  		{ author: 'eliza', text: eliza.getInitial() }
+  //  	];
+  //  
+  //    function handleKeydown(event) {
+  //  		if (event.key === 'Enter') {
+  //  			const text = event.target.value;
+  //  			if (!text) return;
+  //  
+  //  			comments = comments.concat({
+  //  				author: 'user',
+  //  				text
+  //  			});
+  //  
+  //  			event.target.value = '';
+  //  
+  //  			const reply = eliza.transform(text);
+  //  
+  //  			setTimeout(() => {
+  //  				comments = comments.concat({
+  //  					author: 'eliza',
+  //  					text: '...',
+  //  					placeholder: true
+  //  				});
+  //  
+  //  				setTimeout(() => {
+  //  					comments = comments.filter(comment => !comment.placeholder).concat({
+  //  						author: 'eliza',
+  //  						text: reply
+  //  					});
+  //  				}, 500 + Math.random() * 500);
+  //  			}, 200 + Math.random() * 200);
+  //  		}
+  //  	}
+  //  
+  //    onDestroy(() => clearInterval(interval));
+  //  
+  //  //   function handleSubmit() {
+  //  // 		alert(`submitted ${pin}`);
+  //  // 	}
+  //    
+  //    onMount(async () => {
+  //  		const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
+  //  		photos = await res.json();
+  //  	});
+  //  
+  //    onMount(() => {
+  //  		const ctx = canvas.getContext('2d');
+  //  		let frame;
+  //  
+  //  		(function loop() {
+  //  			frame = requestAnimationFrame(loop);
+  //  
+  //  			const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  //  
+  //  			for (let p = 0; p < imageData.data.length; p += 4) {
+  //  				const i = p / 4;
+  //  				const x = i % canvas.width;
+  //  				const y = i / canvas.height >>> 0;
+  //  
+  //  				const t = window.performance.now();
+  //  
+  //  				const r = 64 + (128 * x / canvas.width) + (64 * Math.sin(t / 1000));
+  //  				const g = 64 + (128 * y / canvas.height) + (64 * Math.cos(t / 1000));
+  //  				const b = 128;
+  //  
+  //  				imageData.data[p + 0] = r;
+  //  				imageData.data[p + 1] = g;
+  //  				imageData.data[p + 2] = b;
+  //  				imageData.data[p + 3] = 255;
+  //  			}
+  //  
+  //  			ctx.putImageData(imageData, 0, 0);
+  //  		}());
+  //  
+  //  		return () => {
+  //  			cancelAnimationFrame(frame);
+  //  		};
+  //  	});
+  //    
 </script>
 
 <style>
@@ -154,8 +179,7 @@
 		word-break: break-all;
 	}
 
-
-  .photos {
+  	.photos {
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
@@ -167,7 +191,7 @@
 		margin: 0;
 	}
 
-  canvas {
+  	canvas {
 		width: 100%;
 		height: 100%;
 		background-color: #666;
@@ -177,54 +201,21 @@
 	input { display: block; }
 	div { display: inline-block; }
 	span { word-break: break-all; }
+	textarea {
+		width: 100%;
+		height: 200px;
+	}
 </style>
 
-<canvas
+<!--canvas
         bind:this={canvas}
 	width={320}
 	height={320}
-></canvas>
+></canvas-->
     
 <main>
   <div id="container">
-    <div class="chat">
-	<h1>Eliza</h1>
-
-	<div class="scrollable" bind:this={div}>
-		{#each comments as comment}
-			<article class={comment.author}>
-				<span>{comment.text}</span>
-			</article>
-		{/each}
-	</div>
-
-	<input on:keydown={handleKeydown}>
-</div>
-
-    <p>
-	The page has been open for
-	{seconds} {seconds === 1 ? 'second' : 'seconds'}
-    </p>
-    <h1>Photo album</h1>
-
-<div class="photos">
-	{#each photos as photo}
-		<figure>
-			<img src={photo.thumbnailUrl} alt={photo.title}>
-			<figcaption>{photo.title}</figcaption>
-		</figure>
-	{:else}
-		<!-- this block renders when photos.length === 0 -->
-		<p>loading...</p>
-	{/each}
-</div>
-
-<!--   <h1 style="color: {pin ? '#333' : '#ccc'}">{view}</h1>
-<Keypad bind:value={pin} on:submit={handleSubmit}/-->
-
-    <h1>Caminandes: Llamigos and canvas</h1>
-<p>From <a href="https://cloud.blender.org/open-projects">Blender Open Projects</a>. CC-BY</p>
-
+    <textarea value={text} on:keydown={handleKeydown}></textarea>
   </div>
 </main>
 
