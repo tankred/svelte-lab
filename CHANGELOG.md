@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.3] - 2020-09-22
+### Changed
+- Add derived stores
+
 ## [0.3.2] - 2020-09-21
 ### Changed
 - The time is now (readable stores)
