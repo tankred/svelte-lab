@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.6] - 2020-09-25
+### Changed
+- Add tweened motion
+
 ## [0.3.5] - 2020-09-24
 ### Changed
 - Add store bindings
