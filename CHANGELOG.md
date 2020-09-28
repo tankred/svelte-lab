@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.7] - 2020-09-28
+### Changed
+- Update Readme
+
 ## [0.3.6] - 2020-09-25
 ### Changed
 - Add tweened motion
@@ -218,3 +222,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2020-05-05
 ### Added
 - Initial commit
+
+## [0.0.1] - 2018-11-08
+### Changed
+- 20180424; skipped + 1
+- 20180720; skipped + 1
+- 20181108; skipped +1
