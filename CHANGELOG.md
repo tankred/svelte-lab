@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.9] - 2020-09-29
+### Changed
+- Bump version to 0.3.9
+
 ## [0.3.8] - 2020-09-29
 ### Changed
 - Add spring
