@@ -5,6 +5,8 @@ Exploring svelte.
 This project is based on a template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit) :
 
+
+
 ```bash
 npx degit sveltejs/template svelte-app
 cd svelte-app
@@ -16,6 +18,18 @@ cd svelte-app
 ## Get started
 
 Install the dependencies...
+
+```bash
+npm install -g svelte-cli
+mkdir my-svelte-project
+cd my-svelte-project
+vi HelloWorld.html
+svelte compile --format iife HelloWorld.html > HelloWorld.js
+vi index.html
+.\index.html
+npm -g list | select-string("svelte")
++-- svelte-cli@1.4.0 | `-- svelte@1.40.1
+```
 
 ```bash
 cd svelte-app
@@ -91,3 +105,4 @@ surge public my-project.surge.sh
 ## Thanks
 
 - Tulsi Prasad for showing the [diff between auto-fill and auto-fit in Grid css](https://cdpn.io/tulsi-prasad/fullpage/XWmddjK)
+- [Luko Castillo](https://dev.to/lukocastillo/quickstart-with-svelte-3-creating-your-first-component-3mm2)

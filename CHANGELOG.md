@@ -8,6 +8,111 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [0.4.0] - 2020-10-02
+### Changed
+- Bump version to 0.4.0
+
+## [0.3.11] - 2020-10-02
+### Changed
+- Implement fly in/out
+
+## [0.3.10] - 2020-09-30
+### Changed
+- Implement fade in/out
+
+## [0.3.9] - 2020-09-29
+### Changed
+- Bump version to 0.3.9
+
+## [0.3.8] - 2020-09-29
+### Changed
+- Add spring
+
+## [0.3.7] - 2020-09-28
+### Changed
+- Update Readme
+
+## [0.3.6] - 2020-09-25
+### Changed
+- Add tweened motion
+
+## [0.3.5] - 2020-09-24
+### Changed
+- Add store bindings
+
+## [0.3.4] - 2020-09-23
+### Changed
+- Add custom stores
+
+## [0.3.3] - 2020-09-22
+### Changed
+- Add derived stores
+
+## [0.3.2] - 2020-09-21
+### Changed
+- The time is now (readable stores)
+
+## [0.3.1] - 2020-09-18
+### Changed
+- Fix memory leak
+
+## [0.3.0] - 2020-09-17
+### Added
+- Implement stores
+
+## [0.2.13] - 2020-09-16
+### Changed
+- Implement tick
+
+## [0.2.12] - 2020-09-15
+### Changed
+- Manage lifecycle before- afterUpdate
+
+## [0.2.11] - 2020-09-14
+### Changed
+- Manage lifecycle on destroy
+
+## [0.2.10] - 2020-09-10
+### Changed
+- Manage lifecycle
+
+## [0.2.9] - 2020-09-08
+### Changed
+- Bind components
+
+## [0.2.8] - 2020-09-04
+### Changed
+- Bind this
+
+## [0.2.7] - 2020-09-03
+### Changed
+- Play with dimensions
+
+## [0.2.6] - 2020-09-02
+### Changed
+- Add media elements
+- Removed all previous items 
+
+## [0.2.5] - 2020-09-01
+### Changed
+- Add each block bindings
+
+## [0.2.4] - 2020-08-31
+### Changed
+- Add contenteditable bindings
+
+## [0.2.3] - 2020-08-28
+### Changed
+- Add multiple select box
+
+## [0.2.2] - 2020-08-27
+### Changed
+- Add a form with dropdown
+
+## [0.2.1] - 2020-08-26
+### Changed
+- Bump version to 0.2.1
+
 ## [0.2.0] - 2020-08-26
 ### Changed
 - Bump version to 0.2
@@ -137,3 +242,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2020-05-05
 ### Added
 - Initial commit
+
+## [0.0.1] - 2018-11-08
+### Changed
+- 20180424; skipped + 1
+- 20180720; skipped + 1
+- 20181108; skipped +1
