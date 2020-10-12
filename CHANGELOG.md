@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.6] - 2020-10-12
+### Changed
+- Deferred transitions
+
 ## [0.4.5] - 2020-10-09
 ### Changed
 - Local transitions
