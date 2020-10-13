@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
+## [0.5.0] - 2020-10-13
+### Changed
+- Bump version to 0.5.0
+
+## [0.4.7] - 2020-10-13
+### Changed
+- Fix CSS styles in rollup config 
+
 ## [0.4.6] - 2020-10-12
 ### Changed
 - Deferred transitions
@@ -29,8 +39,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.1] - 2020-10-05
 ### Changed
 - Ease in / out
-
-## [Released]
 
 ## [0.4.0] - 2020-10-02
 ### Changed
