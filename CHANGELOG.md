@@ -8,6 +8,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [0.5.0] - 2020-10-13
+### Changed
+- Bump version to 0.5.0
+
+## [0.4.7] - 2020-10-13
+### Changed
+- Fix CSS styles in rollup config 
+
+## [0.4.6] - 2020-10-12
+### Changed
+- Deferred transitions
+
+## [0.4.5] - 2020-10-09
+### Changed
+- Local transitions
+
+## [0.4.4] - 2020-10-08
+### Changed
+- Transition events
+
+## [0.4.3] - 2020-10-07
+### Changed
+- Custom JS transitions
+
+## [0.4.2] - 2020-10-06
+### Changed
+- Custom CSS transitions
+
+## [0.4.1] - 2020-10-05
+### Changed
+- Ease in / out
+
 ## [0.4.0] - 2020-10-02
 ### Changed
 - Bump version to 0.4.0
