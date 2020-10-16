@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.3] - 2020-10-16
+### Changed
+- Implement long press
+
 ## [0.5.2] - 2020-10-15
 ### Changed
 - Pannable action
