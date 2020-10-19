@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.4] - 2020-10-19
+### Changed
+- Add classes
+
 ## [0.5.3] - 2020-10-16
 ### Changed
 - Implement long press
