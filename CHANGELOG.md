@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.5] - 2020-10-20
+### Changed
+- Add classes: shorthand
+
 ## [0.5.4] - 2020-10-19
 ### Changed
 - Add classes

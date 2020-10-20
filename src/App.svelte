@@ -1,29 +1,18 @@
 <script>
-	let current = 'foo';
+	let big = false;
 </script>
 
 <style>
-	button {
-		display: block;
-	}
-
-	.selected {
-		background-color: #ff3e00;
-		color: white;
+	.big {
+		font-size: 4em;
 	}
 </style>
 
-<button
-	class:selected="{current === 'foo'}"
-	on:click="{() => current = 'foo'}"
->foo</button>
+<label>
+	<input type=checkbox bind:checked={big}>
+	big
+</label>
 
-<button
-	class:selected="{current === 'bar'}"
-	on:click="{() => current = 'bar'}"
->bar</button>
-
-<button
-	class:selected="{current === 'baz'}"
-	on:click="{() => current = 'baz'}"
->baz</button>
+<div class:big>
+	some {big ? 'big' : 'small'} text
+</div>
