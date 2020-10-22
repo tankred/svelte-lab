@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.7] - 2020-10-22
+### Changed
+- Slot fallback (empty box)
+
 ## [0.5.6] - 2020-10-21
 ### Changed
 - Component composition
