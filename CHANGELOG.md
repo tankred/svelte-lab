@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.8] - 2020-10-26
+### Changed
+- Create named slots
+
 ## [0.5.7] - 2020-10-22
 ### Changed
 - Slot fallback (empty box)

@@ -1,10 +1,14 @@
 <script>
-	import Box from './Box.svelte';
+	import ContactCard from './ContactCard.svelte';
 </script>
 
+<ContactCard>
+	<span slot="name">
+		P. Sherman
+	</span>
 
-<Box>
-	<h2>Hello!</h2>
-	<p>This is a box. It can contain anything.</p>
-</Box>
-<Box/>
+	<span slot="address">
+		42 Wallaby Way<br>
+		Sydney
+	</span>
+</ContactCard>
