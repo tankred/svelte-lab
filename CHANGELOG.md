@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.9] - 2020-10-27
+### Changed
+- Slot props
+
 ## [0.5.8] - 2020-10-26
 ### Changed
 - Create named slots

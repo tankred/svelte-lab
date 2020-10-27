@@ -1,14 +1,46 @@
 <script>
-	import ContactCard from './ContactCard.svelte';
+	import Hoverable from './Hoverable.svelte';
 </script>
 
-<ContactCard>
-	<span slot="name">
-		P. Sherman
-	</span>
+<style>
+	div {
+		padding: 1em;
+		margin: 0 0 1em 0;
+		background-color: #eee;
+	}
 
-	<span slot="address">
-		42 Wallaby Way<br>
-		Sydney
-	</span>
-</ContactCard>
+	.active {
+		background-color: #ff3e00;
+		color: white;
+	}
+</style>
+
+<Hoverable let:hovering={active}>
+	<div class:active>
+		{#if active}
+			<p>I am being hovered upon.</p>
+		{:else}
+			<p>Hover over me!</p>
+		{/if}
+	</div>
+</Hoverable>
+
+<Hoverable let:hovering={active}>
+	<div class:active>
+		{#if active}
+			<p>I am being hovered upon.</p>
+		{:else}
+			<p>Hover over me!</p>
+		{/if}
+	</div>
+</Hoverable>
+
+<Hoverable let:hovering={active}>
+	<div class:active>
+		{#if active}
+			<p>I am being hovered upon.</p>
+		{:else}
+			<p>Hover over me!</p>
+		{/if}
+	</div>
+</Hoverable>
