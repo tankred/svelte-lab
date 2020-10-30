@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.10] - 2020-10-30
+### Added
+- Openstreetmap context
+
 ## [0.5.9] - 2020-10-27
 ### Changed
 - Slot props
