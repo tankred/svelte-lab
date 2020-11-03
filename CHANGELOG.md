@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.12] - 2020-11-03
+### Added
+- Files and folders.svelte
+
 ## [0.5.11] - 2020-11-02
 ### Added
 - Files and folders.svelte
