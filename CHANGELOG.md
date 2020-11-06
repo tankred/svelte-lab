@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.14] - 2020-11-06
+### Changed
+- Parallax layer scroll
+
 ## [0.5.13] - 2020-11-05
 ### Added
 - Files and folders.svelte
