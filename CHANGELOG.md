@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.18] - 2020-11-18
+### Added
+- Audio player
+
 ## [0.5.17] - 2020-11-17
 ### Added
 - Todo list (immutable option)
