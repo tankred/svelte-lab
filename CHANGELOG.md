@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.20] - 2020-11-23
+### Changed
+- Debug script
+
 ## [0.5.19] - 2020-11-19
 ### Changed
 - Audio player stop all
