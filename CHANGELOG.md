@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
+## [0.6.0] - 2020-11-24
+### Changed
+- Bump version to 0.6.0
+
 ## [0.5.21] - 2020-11-24
 ### Changed
 - Congratulations with confetti 
@@ -89,8 +95,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.5.1] - 2020-10-14
 ### Changed
 - Animate todo-list
-
-## [Released]
 
 ## [0.5.0] - 2020-10-13
 ### Changed
