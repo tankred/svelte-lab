@@ -8,6 +8,94 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [0.6.0] - 2020-11-24
+### Changed
+- Bump version to 0.6.0
+
+## [0.5.21] - 2020-11-24
+### Changed
+- Congratulations with confetti 
+
+## [0.5.20] - 2020-11-23
+### Changed
+- Debug script
+
+## [0.5.19] - 2020-11-19
+### Changed
+- Audio player stop all
+
+## [0.5.18] - 2020-11-18
+### Added
+- Audio player
+
+## [0.5.17] - 2020-11-17
+### Added
+- Todo list (immutable option)
+
+## [0.5.16] - 2020-11-16
+### Added
+- Dark theme css
+
+## [0.5.15] - 2020-11-13
+### Changed
+- Hello Kitty
+
+## [0.5.14] - 2020-11-06
+### Changed
+- Parallax layer scroll
+
+## [0.5.13] - 2020-11-05
+### Added
+- Files and folders.svelte
+
+## [0.5.12] - 2020-11-03
+### Added
+- Files and folders.svelte
+
+## [0.5.11] - 2020-11-02
+### Added
+- Files and folders.svelte
+
+## [0.5.10] - 2020-10-30
+### Added
+- Openstreetmap context
+
+## [0.5.9] - 2020-10-27
+### Changed
+- Slot props
+
+## [0.5.8] - 2020-10-26
+### Changed
+- Create named slots
+
+## [0.5.7] - 2020-10-22
+### Changed
+- Slot fallback (empty box)
+
+## [0.5.6] - 2020-10-21
+### Changed
+- Component composition
+
+## [0.5.5] - 2020-10-20
+### Changed
+- Add classes: shorthand
+
+## [0.5.4] - 2020-10-19
+### Changed
+- Add classes
+
+## [0.5.3] - 2020-10-16
+### Changed
+- Implement long press
+
+## [0.5.2] - 2020-10-15
+### Changed
+- Pannable action
+
+## [0.5.1] - 2020-10-14
+### Changed
+- Animate todo-list
+
 ## [0.5.0] - 2020-10-13
 ### Changed
 - Bump version to 0.5.0
