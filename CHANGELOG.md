@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [0.8.0] - 2024-06-16
+### Changed
+- Merge dependabot alerts
+- terser-5.14.2
+
 ## [0.7.0] - 2021-06-08
 ### Changed
 - Bump ws from 6.2.1 to 6.2.2
