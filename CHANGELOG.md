@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [0.8.1] - 2026-03-06
+### Removed
+- Package lock file 
+
 ## [0.8.0] - 2024-06-16
 ### Changed
 - Merge dependabot alerts
