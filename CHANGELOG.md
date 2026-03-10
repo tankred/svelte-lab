@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [1.0.0] - 2026-03-10
+### Changed
+- Rename master branch to main
+
 ## [0.9.1] - 2026-03-09
 ### Changed
 - Merge dependabot/npm_and_yarn/ws-6.2.3
