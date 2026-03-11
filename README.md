@@ -1,5 +1,7 @@
 # svelte app
 
+ARCHIVED repo 2023-03-11
+
 Exploring svelte. 
 
 This project is based on a template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
